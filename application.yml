@@ -1,6 +1,4 @@
-spring:
-  config:
-    activate:
-      on-profile: dev
-
-lucky-word: Fortune
+# Common configuration for all applications
+logging:
+  level:
+    root: INFO
