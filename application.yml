@@ -7,12 +7,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-      
-spring:
-  config:
-    activate:
-      on-profile: development
-
 
 lucky-word: Your lucky word here
 
