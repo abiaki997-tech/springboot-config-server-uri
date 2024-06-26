@@ -13,3 +13,7 @@ spring:
     activate:
       on-profile: development
 
+
+lucky-word: Your lucky word here
+
+
