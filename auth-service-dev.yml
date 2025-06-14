@@ -1,0 +1,93 @@
+# ======================
+# SPRING APPLICATION NAME
+# ======================
+spring:
+  application:
+    name: auth-service
+    # Identifies the service name in logs, service discovery (Eureka), etc.
+    # debug: true
+
+  # ======================
+  # SERVER CONFIGURATION
+  # ======================
+  server:
+    port: 8081
+    # The port where your Spring Boot application will run (e.g., http://localhost:8081)
+
+  # ======================
+  # DATABASE CONNECTION (MySQL)
+  # ======================
+  datasource:
+    url: jdbc:mysql://localhost:3306/meditrack_auth?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    # JDBC URL to connect to your MySQL DB (replace `meditrack_auth` with your actual DB name)
+    username: root
+    # Your MySQL DB username
+    password: Welcome@1234
+    # Your MySQL DB password (NEVER hardcode in real prod apps)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # MySQL JDBC driver (modern connector)
+
+  # ======================
+  # JPA & HIBERNATE CONFIG
+  # ======================
+  jpa:
+    hibernate:
+      ddl-auto: update
+      # Auto schema generation/update based on entities
+      # Options:
+      # - create (drop + recreate)
+      # - update (alter schema to match entities)
+      # - validate (just validate, no changes)
+      # - none (do nothing)
+    show-sql: true
+      # Show SQL statements in the console (for debugging)
+    properties:
+      hibernate:
+        format_sql: true
+          # Print SQL in a nicely formatted way
+        dialect: org.hibernate.dialect.MySQL8Dialect
+          # Hibernate dialect to use MySQL 8 specific features)
+
+  # ======================
+  # SPRING SECURITY (Optional - for basic in-memory auth)
+  # ======================
+  security:
+    user:
+      name: admin
+      password: admin
+      # Default user credentials for accessing secured endpoints (not for production)
+
+# ======================
+# JWT CONFIGURATION
+# ======================
+jwt:
+  # secret: your_jwt_secret_key
+  # Secret key used to sign and validate JWT tokens (keep it safe!)
+  secret: aXRoZWFybGVkZG9lc25vdHRtYXR0ZXJidXRobmV2ZXJ1c2VhYmFkYmFzZTY0dG9rZW4=
+  expiration: 900000
+  refresh-expiration: 604800000
+  expirationMs: 3600000
+    # JWT access token validity time (in milliseconds) ? here it's 1 hour
+  refreshExpirationMs: 86400000
+    # Refresh token validity time (in milliseconds) ? here it's 24 hours
+
+# ======================
+# LOGGING LEVELS (DEBUG INFO)
+# ======================
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+          # Shows Spring Security logs (authentication/authorization)
+      hibernate:
+        SQL: DEBUG
+          # Shows raw SQL statements from Hibernate
+
+# ======================
+# MISC OPTIONALS
+# ======================
+# spring:
+#   application:
+#     name: mediproject
+# Uncomment if you're using a shared name across all services
