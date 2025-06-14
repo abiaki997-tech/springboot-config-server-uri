@@ -1,4 +1,12 @@
 # ======================
+# SERVER CONFIGURATION
+# ======================
+server:
+  port: 8081
+  # The port where your Spring Boot application will run (e.g., http://localhost:8081)
+
+
+# ======================
 # SPRING APPLICATION NAME
 # ======================
 spring:
@@ -6,14 +14,7 @@ spring:
     name: auth-service
     # Identifies the service name in logs, service discovery (Eureka), etc.
     # debug: true
-
-  # ======================
-  # SERVER CONFIGURATION
-  # ======================
-  server:
-    port: 8081
-    # The port where your Spring Boot application will run (e.g., http://localhost:8081)
-
+    
   # ======================
   # DATABASE CONNECTION (MySQL)
   # ======================
